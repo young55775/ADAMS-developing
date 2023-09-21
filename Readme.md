@@ -24,11 +24,13 @@ pickle
 
 A pypi package coming soon. Python source code is available above
 
+Please contact: guozy23@mails.tsinghua.edu.cn for more information
+
 ## Tutorial and description
 
 ### Introduction
 
-We've developed a technique to address the issue of numerous proteins 
+We've developed a method to address the issue of numerous proteins 
 exhibiting high structural similarity despite having no sequence 
 similarities. This problem has become increasingly critical as 
 Alphafold2 continues to predict new structures, resulting in a massive 
