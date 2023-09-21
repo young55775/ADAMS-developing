@@ -80,9 +80,9 @@ where TP (True Positive) refers to hits within the same superfamily
 according to SCOP classification until the first FP -- hits to another 
 fold.
 
-Our model significantly underperformed at both ends of the accuracy 
+Our model significantly outperformed at both ends of the accuracy 
 spectrum. ADAMS was able to identify more correct structural correlations
-that Foldseek struggled with. Additionally, in areas of 100% accuracy, 
+that Foldseek struggled with. Additionally, in areas of both 100% and 0% accuracy, 
 there was a noticeable disparity between Foldseek and ADAMS.
 
 ![image](img/fig2.jpg)
