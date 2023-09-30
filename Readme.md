@@ -68,26 +68,14 @@ similarity calculation becomes straightforward on GPUs.
 
 ![image](img/fig1.jpg)
 
-The performance metrics are as follows - it took between 8-10 seconds 
+The performance metrics are as follows - it took between 3-4 seconds 
 to search for the protein structure 'OSM-3' (699aa) within a C.elegans protein 
-structure database using an Nvidia RTX2080Ti (11GiB) GPU. When loading 
+structure database (19361 structures) using an Nvidia RTX2080Ti (11GiB) GPU. When loading 
 the entire database onto the dataset, total GPU memory usage was around
 4000MB. However, when loaded separately, it only consumed about 500MB 
 of memory. Importantly, these different methods did not impact search 
 speed. 
 
-Figure 2 presents the accuracy results from a comprehensive comparison 
-within the SCOPe40 dataset. Accuracy is calculated as (TP/TP+FN), 
-where TP (True Positive) refers to hits within the same superfamily 
-according to SCOP classification until the first FP -- hits to another 
-fold.
-
-Our model significantly outperformed at both ends of the accuracy 
-spectrum. ADAMS was able to identify more correct structural correlations
-that Foldseek struggled with. Additionally, in areas of both 100% and 0% accuracy, 
-there was a noticeable disparity between Foldseek and ADAMS.
-
-![image](img/fig2.jpg)
 
 We tested the local version of Foldseek and found it to be ultra-fast 
 with acceptable accuracy especially when it performed an all vs all structure clustering, as stated in their paper.
