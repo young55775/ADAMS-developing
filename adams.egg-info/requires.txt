@@ -1,0 +1,5 @@
+numpy>=1.17.2
+opencv-python>=4.7.0.12
+scipy==1.11.2
+tqdm==4.66.1
+biopython==1.81
