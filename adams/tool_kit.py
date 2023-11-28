@@ -41,25 +41,25 @@ def norm(x):
     x = x / x1
     return x.T
 
-
 def compare(des, t, data, length):
     try:
-        aa = length[data[0]]
-        dt = cp.asarray(data[1])
+        aa = int(length[data[0]])
         dist = cp.dot(des, data[1].T)
         max_mat = (cp.max(dist, axis=1) - t)
         ind = max_mat > 0
         n = cp.sum(max_mat * (max_mat > 0))
-        match = cp.sum(ind)
+        match = int(cp.sum(ind))
+        n = float(n)
         feat_q = des.shape[0]
         feat_k = data[1].shape[0]
         if 'CELE_' in data[0]:
             name = data[0].split('_')[1]
         else:
             name = data[0]
-        return f"{name},{match},{n},{feat_q},{feat_k},{aa}\n"
+        return [name,match,n,feat_q,feat_k,aa]
     except:
-        return f"{0},{0},{0},{0},{0},{0},{0}\n"
+        return ['error',0,0,0,0,0]
 
 def z_score(arr):
+    arr = np.asarray(arr, dtype=float)
     return (arr-np.mean(arr))/np.std(arr)

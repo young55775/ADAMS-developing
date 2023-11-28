@@ -54,12 +54,12 @@ class DatabaseMaker():
         for i in range(chunks + 1):
             feature_dict = {}
             length_dict = {}
-            file = files[5000 * i:5000 * i + 5000]
+            file = files[self.chunk_size * i:self.chunk_size * i + self.chunk_size]
             result = process_map(feature_p, file, max_workers=self.process, chunksize=1)
             for j in range(len(result)):
                 feature_dict[result[j][0]] = cp.asarray(result[j][1])
                 length_dict[result[j][0]] = cp.asarray(result[j][2])
-            db_list.append(out_perfix + '{}.pkl'.format(i))
+            db_list.append('./{}.pkl'.format(i))
             with open(out_perfix + '{}.pkl'.format(i), 'wb') as f:
                 pkl.dump(feature_dict, f)
             with open(out_perfix + '{}_len.pkl'.format(i), 'wb') as f:

@@ -76,12 +76,7 @@ the entire database onto the dataset, total GPU memory usage was around
 of memory. Importantly, these different methods did not impact search 
 speed. 
 
-
-We tested the local version of Foldseek and found it to be ultra-fast 
-with acceptable accuracy especially when it performed an all vs all structure clustering, as stated in their paper.
-Actually, it is so impressive that we almost want to give up our model.
-However, for high-accuracy protein structure searches at nearly the same speed, 
-ADAMS performs better.
+pre-print paper is here: https://www.biorxiv.org/content/10.1101/2023.11.14.566990v1.article-metrics
 
 
 ### Tutorial
@@ -94,13 +89,13 @@ pip install adams
 import adams
 from adams.toolkit import *
 from adams.db_maker import DatabseMaker
-db = DatabaseMaker(device=0, chunksize=5000, process=40) # use GPU-0, 5000 pdb every block, 40*1.5 process.
+db = DatabaseMaker(device=0, chunk_size=5000, process=40) # use GPU-0, 5000 pdb every block, 40*1.5 process.
 db.make('./pdb','./pdb_db') # put your pdb dataset in one folder and make your database in another one
 ```
 ##### 2. Match your protein structure to different databases
 ```commandline
 import adams
-from adams.toolkit import *
+from adams.tool_kit import *
 from adams.matcher import ADAMS_match
 matcher = ADAMS_match('./protein.pdb',threshold=0.95)
 result = matcher.match('./pdb_db') # search similar protein structure from a database, return a pandas dataframe

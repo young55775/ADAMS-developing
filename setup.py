@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from distutils.core import setup
 
-install = ['numpy >= 1.17.2', 'opencv-python >= 4.7.0.12', 'scipy == 1.11.2', 'tqdm == 4.66.1', 'biopython == 1.81']
+install = ['numpy', 'opencv-python', 'scipy', 'tqdm', 'biopython']
 
 
 with open("Readme.md", "r", encoding='utf-8') as f:
@@ -9,7 +9,7 @@ with open("Readme.md", "r", encoding='utf-8') as f:
 
 setup(
     name='adams',
-    version='0.0.6',
+    version='0.0.11',
     description='this is a program for fast protein structure search',
     long_description=long_description,
     long_description_content_type="text/markdown",
