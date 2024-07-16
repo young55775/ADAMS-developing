@@ -84,21 +84,36 @@ This article is published in bioinformatics: https://academic.oup.com/bioinforma
 ```commandline
 pip install adams
 ```
-##### 1. Download a pdb set and make it a cuda_database or a compatible one'
+##### 1.check if the script has already been added to PATH (IMPORTANT):
+```commandline
+compare_all.py
+```
+if not, just add it to the PATH.
+if you want to show the path and perform step 2:
+```commandline
+which compare_all.py
+```
+this will show the path to compare_all.py
+##### 2.if permission denied:
+```commandline
+chmod +x path/to/compare_all.py
+```
+##### 3. Download a pdb set and make it a cuda_database or a compatible one'
 ```commandline
 import adams
 from adams.toolkit import *
-from adams.db_maker import DatabseMaker
+from adams.db_maker import DatabaseMaker
 db = DatabaseMaker(device=0, chunk_size=5000, process=40) # use GPU-0, 5000 pdb every block, 40*1.5 process.
 db.make('./pdb','./pdb_db') # put your pdb dataset in one folder and make your database in another one
 ```
-##### 2. Match your protein structure to different databases
+##### 4. Match your protein structure to different databases
 ```commandline
 import adams
 from adams.tool_kit import *
 from adams.matcher import ADAMS_match
-matcher = ADAMS_match('./protein.pdb',threshold=0.95)
-result = matcher.match('./pdb_db') # search similar protein structure from a database, return a pandas dataframe
+matcher = ADAMS_match('./protein.pdb',threshold=0.95,gpu_usage=[0,1]) #use gpu 0,1 to calculate the result.
+result = matcher.match('./pdb_db','tmp') # search similar protein structure from a database, return a pandas dataframe. oops, you need an empty 'tmp' folder to do so
 ```
+
 
 
