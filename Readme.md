@@ -76,7 +76,7 @@ the entire database onto the dataset, total GPU memory usage was around
 of memory. Importantly, these different methods did not impact search 
 speed. 
 
-pre-print paper is here: https://www.biorxiv.org/content/10.1101/2023.11.14.566990v1.article-metrics
+This article is published in bioinformatics: https://academic.oup.com/bioinformatics/article/40/3/btae064/7601449
 
 
 ### Tutorial
